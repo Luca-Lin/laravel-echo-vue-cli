@@ -10,6 +10,13 @@ export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+
+  mounted() {
+    window.Echo.channel('channel')
+      .listen('LineBotMessage', (e) => {
+        console.log(e);
+      });
   }
 }
 </script>
