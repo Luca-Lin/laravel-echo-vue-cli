@@ -1,6 +1,8 @@
 # test-websocket
 
-## Environment
+Use `laravel-echo` and `pusher-js` front end package to connect self `laravel-websocket` server
+
+## Environment to setting PUSHER_KEY and Laravel Websocket Server Host
 
 vue-cli project can read `VUE_APP` prefix env
 
