@@ -1,8 +1,8 @@
-# test-websocket
+# laravel-echo and pusher-js
 
 Use `laravel-echo` and `pusher-js` front end package to connect self `laravel-websocket` server
 
-## Environment to setting PUSHER_KEY and Laravel Websocket Server Host
+## Environment to setting PUSHER_KEY and laravel websocket server host
 
 vue-cli project can read `VUE_APP` prefix env
 
@@ -10,9 +10,9 @@ vue-cli project can read `VUE_APP` prefix env
 cp .env .env.local
 ```
 
-## Connect Setting
+## Connect setting
 
-- setting
+- setting on your want to connect page
 ```javascript
 import Echo from 'laravel-echo';
 import Pusher from 'pusher-js';
