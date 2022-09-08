@@ -1,5 +1,13 @@
 # test-websocket
 
+## Environment
+
+vue-cli project can read `VUE_APP` prefix env
+
+```
+cp .env .env.local
+```
+
 ## Project setup
 ```
 yarn install
