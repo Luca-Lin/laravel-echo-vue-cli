@@ -10,24 +10,36 @@ vue-cli project can read `VUE_APP` prefix env
 cp .env .env.local
 ```
 
-## Project setup
-```
-yarn install
-```
+## Connect Setting
 
-### Compiles and hot-reloads for development
+- setting
+```javascript
+import Echo from 'laravel-echo';
+import Pusher from 'pusher-js';
+window.Pusher = Pusher;
+window.Echo = new Echo({
+    broadcaster: 'pusher',
+    key: process.env.VUE_APP_WEBSOCKETS_KEY,
+    wsHost: process.env.VUE_APP_WEBSOCKETS__SERVER,
+    wsPort: 6001,
+    forceTLS: false,
+    disableStats: true,
+    enabledTransports: ['ws']
+});
 ```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
+- console.log my laravel event
+```javascript
+export default {
+  name: 'App',
+  ...
+  
+  mounted() {
+    window.Echo.channel('channel')
+      .listen('LineBotMessage', (e) => {
+        console.log(e);
+      });
+  }
+}
 ```
 
 ### Customize configuration
