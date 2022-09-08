@@ -5,6 +5,19 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import Echo from 'laravel-echo'
+import Pusher from 'pusher-js'
+
+window.Pusher = Pusher;
+window.Echo = new Echo({
+    broadcaster: 'pusher',
+    key: process.env.VUE_APP_WEBSOCKETS_KEY,
+    wsHost: process.env.VUE_APP_WEBSOCKETS__SERVER,
+    wsPort: 6001,
+    forceTLS: false,
+    disableStats: true,
+    enabledTransports: ['ws']
+})
 
 export default {
   name: 'App',
@@ -16,7 +29,7 @@ export default {
     window.Echo.channel('channel')
       .listen('LineBotMessage', (e) => {
         console.log(e);
-      });
+      })
   }
 }
 </script>
